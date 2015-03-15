@@ -1640,6 +1640,7 @@ switch(output){
                 slideZBearingsSupport().translate([-_ZrodsWidth/2+2,_globalDepth/2-_wallThickness-15,_globalHeight/2-40]),
                 slideZBeltAttach().translate([-_ZrodsWidth/2+13,_globalDepth/2-_wallThickness-15,_globalHeight/2-40])*/
         ];
+        break;
     case 11:
         if (_ZrodsOption > 0 ) {
             res = [
