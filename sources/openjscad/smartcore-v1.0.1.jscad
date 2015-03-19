@@ -112,9 +112,8 @@ function getParameterDefinitions() {
 
 // -----------------  printed elements 
 
-
-
 function zTopBase(width, depth, height) { 
+	var adjustment = (_ZrodsOption>0)? 15 : 13;
     return difference(
             //main
             cube({size:[width,depth,height],center:true}).translate([0,-1,0]),
@@ -127,9 +126,9 @@ function zTopBase(width, depth, height) {
             //screw right
             slottedHole(4,8,depth).rotateX(90).rotateY(90).translate([(width)/2-9,20,0]),
             // z rod left
-            cylinder({r:_ZrodsDiam/2,h:height,fn:_globalResolution}).translate([-_ZrodsWidth/2,depth/2-15,-height/2]),
+            cylinder({r:_ZrodsDiam/2,h:height,fn:_globalResolution}).translate([-_ZrodsWidth/2,depth/2-adjustment,-height/2]),
             //z rod right
-            cylinder({r:_ZrodsDiam/2,h:height,fn:_globalResolution}).translate([_ZrodsWidth/2,depth/2-15,-height/2]),
+            cylinder({r:_ZrodsDiam/2,h:height,fn:_globalResolution}).translate([_ZrodsWidth/2,depth/2-adjustment,-height/2]),
             // chamfer
             roundBoolean2(10,height,"bl").rotateX(90).rotateZ(-90).translate([-width/2+22,-depth/2+9,-height/2]),
             roundBoolean2(10,height,"bl").rotateX(90).translate([width/2-22,-depth/2+9,-height/2])
@@ -163,7 +162,7 @@ function zTop(){
 	} else {
 		return union(
 			difference(
-				zTopBase(width, depth, height),
+				zTopBase(width, depth, height).translate([0,-4,0]),
 				// inside form
 				difference(
 					cube({size:[insideWidth,8,height],center:true}).translate([3,-5.5,0]),
@@ -1644,17 +1643,17 @@ switch(output){
     case 11:
         if (_ZrodsOption > 0 ) {
             res = [
-            cylinder({r:_ZrodsDiam/2,h:ZrodLength,fn:_globalResolution}).translate([-_ZrodsWidth/2+30,-13,-155]).setColor(0.9,0.3,0.3),
-            _rodsZ().translate([0,-_globalDepth/2+_wallThickness+1,-100]),
-            slideZ2().translate([-30,-3,0]),
-            zTop().translate([0,-3,-100]),
-            zBottom().translate([0,-1,100])
+            cylinder({r:_ZrodsDiam/2,h:ZrodLength-30,fn:_globalResolution}).translate([-_ZrodsWidth/2+30,-13,-155]).setColor(0.9,0.3,0.3),
+            _rodsZ().translate([0,-_globalDepth/2+_wallThickness+1,-130]),
+            slideZ2().translate([-30,-3,-40]),
+            zTop().translate([0,-3,90]),
+            zBottom().translate([0,-1,-140])
             ];
         } else {
             res = [
                 _rodsZ().translate([0,-_globalDepth/2+_wallThickness+1,-115]),
                 slideZ2().translate([-30,-1,0]),
-                zTop().translate([0,-1,100]),
+                zTop().translate([0,1,100]),
                 zBottom().translate([0,1,-100])
             ];
         }
