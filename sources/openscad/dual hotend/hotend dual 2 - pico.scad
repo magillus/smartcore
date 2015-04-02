@@ -1,4 +1,4 @@
-print=0; // 0= veiw assembly 1= printable render
+print=1; // 0= veiw assembly 1= printable render
 include <pico-hotend.scad>;
 $fn=40;
 width = 40;
@@ -7,7 +7,7 @@ if (print==1){
 print();
 }
 else {
-		hotends();
+	//#	hotends();
 	fans();
 	mount();
 	clamp();
@@ -45,10 +45,10 @@ module mount() {
 color("green")
 difference() {
 union(){ //Main Mount Bracket
-	translate([28, -5, 0]) cube([6.5, width+10, 15] );
+	translate([28, -5, 0]) cube([7.5, width+10, 15] );
 	cube([30, width, 5] );
 }
-translate([-.1, 10, -.1]) cube([25, width-20, 5.2]);
+translate([5, 10, -.1]) cube([20, width-20, 5.2]);
 //mount screw holes
 translate([4, 3 , -.1]) cylinder(r = 1.8, h= 5.5); 
 translate([4, width-3, -.1]) cylinder(r = 1.8, h=5.5);
@@ -56,10 +56,12 @@ translate([20.5, 3, -.1]) cylinder(r=1.8, h=5.5);
 translate([20.5, width-3, -.1]) cylinder(r=1.8, h=5.5);
 	
 //hotend mount holes
-translate([27.9, 30, 15])rotate([0, 90, 0]) cylinder(r=8, h=2.1);
-	translate([27.9, 10, 15])rotate([0, 90, 0]) cylinder(r=8, h=2.1);
-	translate([27.9, 10, 15])rotate([0, 90, 0]) cylinder(r=6, h=10);
-	translate([27.9, 30, 15])rotate([0, 90, 0]) cylinder(r=6, h=10);
+	translate([33.5, 30, 15])rotate([0, 90, 0]) cylinder(r=8.25, h=2.5);
+	translate([33.5, 10, 15])rotate([0, 90, 0]) cylinder(r=8.25, h=2.5);
+#	translate([26.5, 30, 15])rotate([0, 90, 0]) cylinder(r=8.25, h=2.5);
+	translate([26.5, 10, 15])rotate([0, 90, 0]) cylinder(r=8.25, h=2.5);
+	translate([26.5, 10, 15])rotate([0, 90, 0]) cylinder(r=6.25, h=10);
+	translate([26.5, 30, 15])rotate([0, 90, 0]) cylinder(r=6.25, h=10);
 
 
 //clamp holes
@@ -98,15 +100,17 @@ union() {
 //translate([28, 30, 48])rotate([0, 90, 0]) cylinder(r=13, h=6.5);
 //translate([28, 25, 25])cube([6.5, 10, 18]);
 
-translate([27, -5, 15.1])cube([8, width+10, 16]);
+translate([28, -5, 15.1])cube([7.5, width+10, 16]);
 }
 
 color("pink")
 //hot end mount holes
-translate([27.9, 30, 15])rotate([0, 90, 0]) cylinder(r=8, h=2.5);
-	translate([27.9, 10, 15])rotate([0, 90, 0]) cylinder(r=8, h=2.5);
-	translate([27.9, 10, 15])rotate([0, 90, 0]) cylinder(r=6, h=10);
-	translate([27.9, 30, 15])rotate([0, 90, 0]) cylinder(r=6, h=10);
+translate([26.5, 30, 15])rotate([0, 90, 0]) cylinder(r=8.25, h=2.5);
+	translate([26.5, 10, 15])rotate([0, 90, 0]) cylinder(r=8.25, h=2.5);
+translate([33.5, 30, 15])rotate([0, 90, 0]) cylinder(r=8.25, h=2.5);
+	translate([33.5, 10, 15])rotate([0, 90, 0]) cylinder(r=8.25, h=2.5);
+	translate([26.5, 10, 15])rotate([0, 90, 0]) cylinder(r=6.25, h=10);
+	translate([26.5, 30, 15])rotate([0, 90, 0]) cylinder(r=6.25, h=10);
 //sensor mount
 //translate([27.9, 30, 48]) rotate([0, 90, 0]) cylinder(r=9.1, h=10);
 //translate([32, 30, 48]) cylinder(r=1.55, h=20);
@@ -119,7 +123,6 @@ translate([32, width+2, 0]) cylinder(r=1.45, h=50);
 translate([32, -2, 0]) cylinder(r=1.45, h=50);
 //fin releif
 	
-   translate([-.1, width/2, 15]) rotate([0, 90, 0]) cylinder(r = 20, h=28.05);//hot end fin releif
 
 }
 }
