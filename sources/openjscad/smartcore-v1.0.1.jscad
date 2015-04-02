@@ -520,7 +520,7 @@ function headLeft(){
         cylinder({r:_XYlmDiam/2,h:X,fn:_globalResolution}).rotateY(90).translate([0,Y/2,15+xrodOffset]),
         // head attach holes 
          cylinder({r:1.3,h:22,fn:_globalResolution}).rotateX(-90).translate([13,0,40]),
-         cylinder({r:1.3,h:22,fn:_globalResolution}).rotateX(-90).translate([13,0,23]),
+         cylinder({r:1.3,h:22,fn:_globalResolution}).rotateX(-90).translate([13,0,24]),
          // rodx extra to ease insert
         cube({size:[X,1,Z]}).translate([0,Y/2-1,-10]),
         // screw to fix rodx guides
@@ -552,7 +552,7 @@ function headRight(){
         cylinder({r:_XYlmDiam/2,h:X,fn:_globalResolution}).rotateY(90).translate([0,Y/2,15+xrodOffset]),
         // head attach holes 
          cylinder({r:1.3,h:22,fn:_globalResolution}).rotateX(-90).translate([3,0,40]),
-         cylinder({r:1.3,h:22,fn:_globalResolution}).rotateX(-90).translate([3,0,23]),
+         cylinder({r:1.3,h:22,fn:_globalResolution}).rotateX(-90).translate([3,0,24]),
 
         cube({size:[X,1,Z]}).translate([0,Y/2-1,-10]) ,
         // screw to fix rodx guides
