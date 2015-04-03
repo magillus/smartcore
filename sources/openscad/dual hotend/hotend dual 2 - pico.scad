@@ -7,6 +7,7 @@ if (print==1){
 print();
 }
 else {
+rotate([0,-90,0]) {
 	hotends();
 	fans();
 	fan_duct();
@@ -16,6 +17,7 @@ else {
 rotate([180,0,0]) translate([0,-40,10]) {
 	mount2();
 	sensor();
+}
 }
 };
 module print() {
